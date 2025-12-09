@@ -1,22 +1,477 @@
-// تمرير ناعم عند الضغط على روابط القائمة
-const links = document.querySelectorAll('.nav a');
 
-links.forEach(link => {
-    link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+CSS
+
+/* إعدادات عامة */
+:root {
+    --primary-black: #121212;      /* خلفية رئيسية */
+    --secondary-black: #1e1e1e;    /* خلفية الكروت */
+    --accent-silver: #a0a0a0;      /* لون فرعي */
+    --highlight-white: #ffffff;    /* نصوص */
+    --border-color: #333333;
+    --btn-gradient: linear-gradient(135deg, #e0e0e0 0%, #b0b0b0 100%); /* تدرج فضي للأزرار */
+    --text-on-light: #121212;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    line-height: 1.6;
+    background-color: var(--primary-black);
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+/* الرأس والقائمة */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: rgba(18, 18, 18, 0.95);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-logo {
+    height: 120px; /* تحكم بحجم اللوقو */
+    width: auto;
+}
+
+.brand-text h1 {
+    font-size: 24px;
+    color: var(--highlight-white);
+    letter-spacing: 2px;
+    font-weight: 900;
+}
+
+.brand-text p {
+    font-size: 10px;
+    color: var(--accent-silver);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav {
+    display: flex;
+    gap: 25px;
+}
+
+.nav a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav a:hover, .nav a.active {
+    color: var(--highlight-white);
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.nav-contact {
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    /* خلفية متدرجة تعطي إحساس معدني */
+    background: radial-gradient(circle at center, #2a2a2a 0%, #121212 100%);
+    padding: 0 20px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.badge {
+    background-color: #333;
+    color: var(--accent-silver);
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--highlight-white);
+}
+
+.hero .highlight {
+    background: -webkit-linear-gradient(#fff, #999);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #bbb;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* الأزرار */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+.btn-primary {
+    background: var(--btn-gradient);
+    color: var(--text-on-light);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #666;
+    color: #fff;
+}
+
+.btn-outline:hover {
+    border-color: #fff;
+    background: rgba(255,255,255,0.05);
+}
+
+/* الأقسام العامة */
+.section {
+    padding: 80px 5%;
+}
+
+.section-dark {
+    background-color: #0f0f0f;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h3 {
+    font-size: 2rem;
+    color: var(--highlight-white);
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: #777;
+}
+
+/* الكروت (Cards) */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--secondary-black);
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #2a2a2a;
+    transition: 0.3s;
+}
+
+.card:hover {
+    border-color: var(--accent-silver);
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 30px;
+    color: var(--accent-silver);
+    margin-bottom: 20px;
+}
+
+.card h4 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+/* قسم الخدمات */
+.service-item {
+    border-right: 3px solid var(--accent-silver);
+    padding-right: 20px;
+    margin-bottom: 30px;
+}
+
+.service-item h4 {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+/* النماذج (Forms) - احترافية */
+.tech-form {
+    background-color: var(--secondary-black);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #333;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.narrow-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.tech-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.tech-form input,
+.tech-form select,
+.tech-form textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #121212;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #fff;
+    font-family: 'Tajawal', sans-serif;
+    transition: 0.3s;
+}
+
+.tech-form input:focus,
+.tech-form select:focus,
+.tech-form textarea:focus {
+    border-color: var(--accent-silver);
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.form-note {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.features-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.features-list li {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.features-list i {
+    color: var(--accent-silver);
+    margin-left: 10px;
+}
+
+/* الفوتر */
+.footer {
+    background-color: #000;
+    padding: 50px 5% 20px;
+    border-top: 1px solid #222;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.footer h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--accent-silver);
+    text-decoration: none;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* استجابة للجوال */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .logo-container {
+        margin-bottom: 15px;
+    }
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .hero h2 {
+        font-size: 2rem;
+    }
+    .split-layout {
+        grid-template-columns: 1fr;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+3. ملف script.js
+تم تحديث الكود للتعامل مع "نموذجين" (الصيانة + قطع الغيار) وإظهار رسائل تأكيد احترافية.
+
+JavaScript
+
+// الانتظار حتى تحميل الصفحة بالكامل
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. تفعيل التمرير الناعم (Smooth Scroll)
+    const links = document.querySelectorAll('.nav a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // 2. معالجة نموذج طلب قطع الغيار (النموذج الجديد)
+    const partsForm = document.getElementById('partsForm');
+    if (partsForm) {
+        partsForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            // جمع البيانات لمحاكاتها (هنا ستربطها بالباك-إند مستقبلاً)
+            const carMake = document.getElementById('carMake').value;
+            const carModel = document.getElementById('carModel').value;
+            
+            // رسالة تأكيد احترافية
+            alert(شكراً لك. تم استلام طلب تسعير قطع لسيارة (${carMake} ${carModel}).\n\nرقم الطلب المرجعي: #${Math.floor(Math.random() * 9000) + 1000}\n\nسيقوم فريق المشتريات بالبحث عن أفضل سعر والرد عليك خلال 24 ساعة.);
+            
+            partsForm.reset();
+        });
+    }
+
+    // 3. معالجة نموذج حجز الصيانة
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const clientName = document.getElementById('bookingName').value;
+            
+            alert(أهلاً بك أ/ ${clientName}.\nتم تسجيل حجزك المبدئي بنجاح في نظام GIG.\nسيتواصل معك منسق الورشة لتأكيد الموعد.);
+            
+            bookingForm.reset();
+        });
+    }
+
+    // 4. تأثير بسيط عند التمرير (تغيير شفافية الهيدر)
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.main-header');
+        if (window.scrollY > 50) {
+            header.style.backgroundColor = 'rgba(18, 18, 18, 0.98)';
+            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
+        } else {
+            header.style.backgroundColor = 'rgba(18, 18, 18, 0.95)';
+            header.style.boxShadow = 'none';
         }
     });
 });
+أفكار إضافية لتعزيز قوة الورشة (يمكنك إضافتها للمشروع لاحقاً):
+GIG Assist: فكرة إضافة QR Code على السيارة بعد الصيانة، عند مسحه بالجوال يظهر للعميل: متى موعد تغيير الزيت القادم؟ وماذا تم إصلاحه آخر مرة؟.
 
-// رسالة بسيطة عند إرسال نموذج الحجز
-const form = document.getElementById('bookingForm');
+Eco-Parts: خيار في نموذج قطع الغيار يتيح للعميل اختيار "قطع مستعملة نظيفة (تشليح VIP)" لتوفير المال والحفاظ على البيئة.
 
-form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('تم استلام طلبك التجريبي بنجاح. هذا النموذج جزء من نموذج أولي لمشروع جامعي.');
-    form.reset();
-});
+خدمة "عينك على سيارتك": كاميرا بث مباشر فوق السيارة أثناء العمل (فكرة تسويقية قوية جداً للشفافية).
