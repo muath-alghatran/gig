@@ -1,179 +1,208 @@
+
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Alghatran Innovation Garage - GIG</title>
+    <title>GIG | منصة الابتكار لصيانة السيارات</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
 <header class="main-header">
-    <div class="logo">
-        <h1>Alghatran Innovation Garage</h1>
-        <p>GIG – ورشة ابتكار لصيانة السيارات</p>
+    <div class="logo-container">
+<img src="gig-logo.jpg" alt="GIG Logo" class="brand-logo">
+        <div class="brand-text">
+            <h1>GIG</h1>
+            <p>Ghatran Innovation Garage</p>
+        </div>
     </div>
+    <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
     <nav class="nav">
-        <a href="#about">عن المشروع</a>
-        <a href="#problem">المشكلة والحل</a>
-        <a href="#services">الخدمات الذكية</a>
-        <a href="#innovation">الابتكار</a>
-        <a href="#why">لماذا GIG؟</a>
-        <a href="#booking">حجز خدمة</a>
-        <a href="#contact">تواصل</a>
+        <a href="#hero">الرئيسية</a>
+        <a href="#vision">رؤيتنا</a>
+        <a href="#ecosystem">المنظومة الذكية</a>
+        <a href="#parts-request">طلب قطع غيار</a>
+        <a href="#booking">حجز صيانة</a>
+        <a href="#contact" class="nav-contact">تواصل معنا</a>
     </nav>
 </header>
 
-<section class="hero">
-    <div class="hero-text">
-        <h2>أول ورشة سيارات ذكية ومبتكرة في حائل</h2>
+<section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <span class="badge">الجيل القادم من مراكز الصيانة</span>
+        <h2>نحو صيانة ذكية.. <br> <span class="highlight">أكثر شفافية ودقة</span></h2>
         <p>
-            مشروع تخرّج ونموذج أولي لمنصة رقمية تربط بين الورشة والعميل، 
-            من الحجز والتشخيص وحتى تسليم السيارة، تحت إشراف 
-            د. إبراهيم الرشيدي – متطلبات هندسة البرمجيات.
+            منصة GIG ليست مجرد ورشة، بل هي منظومة رقمية متكاملة تدمج بين خبرة الصيانة الميكانيكية
+            وقوة الحلول البرمجية. نوفر لك تتبعاً لحظياً، وشفافية مطلقة في الأسعار، وأرشيفاً رقمياً لسيارتك.
         </p>
-        <a href="#booking" class="btn-primary">احجز خدمة تجريبية</a>
-    </div>
-</section>
-
-<section id="about" class="section">
-    <h3>من أنا ولماذا بدأت مشروع GIG؟</h3>
-    <p>
-        أنا معاذ الغتران، أعمل في مجال قطع الغيار والصيانة والتوريد منذ المرحلة الثانوية.
-        هذه التجربة كشفت لي مشاكل حقيقية في سوق الورش التقليدية، 
-        وألهمتني أستخدم تخصّصي (هندسة البرمجيات) لبناء ورشة مبتكرة تجمع بين
-        الخبرة العملية والحلول الرقمية.
-    </p>
-    <p>
-        اسم المشروع التجاري: <strong>Alghatran Innovation Garage – GIG</strong>  
-        اختصار بسيط وقوي يعكس أن الورشة ليست مجرد صيانة، بل منصة ابتكار وتحول رقمي.
-    </p>
-</section>
-
-<section id="problem" class="section section-gray">
-    <h3>المشكلة الحالية في سوق الورش</h3>
-    <ul>
-        <li>غياب الشفافية في تكلفة الإصلاح وأسعار قطع الغيار.</li>
-        <li>صعوبة معرفة حالة السيارة داخل الورشة لحظة بلحظة.</li>
-        <li>قلة التنظيم في إدارة المواعيد والطلبات.</li>
-        <li>عدم وجود سجل صيانة رقمي للسيارة.</li>
-        <li>صعوبة نقل السيارة عند تعطلها وعدم وضوح تكلفة السطحة.</li>
-        <li>عدم وجود منصة رقمية تجمع جميع هذه الخدمات في مكان واحد.</li>
-    </ul>
-
-    <h4>الحل المقترح</h4>
-    <p>
-        نظام رقمي متكامل للحجز والإدارة والخدمات، 
-        يربط بين العميل، الفنيين، والإدارة في منصة واحدة، 
-        مع موقع إلكتروني وتطبيق جوال ولوحة تحكم للورش.
-    </p>
-</section>
-
-<section id="services" class="section">
-    <h3>فكرة GIG: ورشة ذكية + منصة رقمية</h3>
-    <div class="cards">
-        <div class="card">
-            <h4>موقع إلكتروني احترافي</h4>
-            <p>يعرض خدمات الورشة وباقات الترهيم والصيانة مع سهولة طلب الخدمة أونلاين.</p>
-        </div>
-        <div class="card">
-            <h4>تطبيق جوال (نموذج أولي)</h4>
-            <p>يتابع العميل حالة سيارته، إشعارات بالتقدم، وسجل الصيانة الرقمي.</p>
-        </div>
-        <div class="card">
-            <h4>خدمة سطحة ذكية</h4>
-            <p>
-                نموذج مالي واضح: إذا وافق العميل على عرض السعر تتحمل GIG تكلفة السطحة، 
-                وإذا رفض يتحملها العميل.
-            </p>
-        </div>
-        <div class="card">
-            <h4>دفتر صيانة رقمي</h4>
-            <p>حفظ جميع أعمال الصيانة وقطع الغيار في سجل واحد مرتبط بالسيارة والعميل.</p>
-        </div>
-        <div class="card">
-            <h4>مقارنة أسعار قطع الغيار</h4>
-            <p>إتاحة مقارنة بين أكثر من مورد لرفع الشفافية وخفض التكلفة على العميل.</p>
-        </div>
-        <div class="card">
-            <h4>لوحة تحكم للفنيين والإدارة</h4>
-            <p>متابعة الطلبات والمهام اليومية والتقارير والإحصائيات بشكل منظم.</p>
+        <div class="hero-buttons">
+            <a href="#booking" class="btn btn-primary">ابدأ رحلة الصيانة</a>
+            <a href="#parts-request" class="btn btn-outline">تسعير قطع غيار</a>
         </div>
     </div>
 </section>
 
-<section id="innovation" class="section section-gray">
-    <h3>الابتكار في مشروع GIG</h3>
-
-    <h4>ابتكار المرحلة الحالية</h4>
-    <ul>
-        <li>تجربة عميل رقمية تبدأ من جواله وتنتهي باستلام السيارة.</li>
-        <li>ربط الحجز والتتبع والسطحة والقطع في منصة واحدة.</li>
-        <li>توثيق كامل لكل عملية صيانة في سجل رقمي.</li>
-    </ul>
-
-    <h4>ابتكار المرحلة المستقبلية</h4>
-    <ul>
-        <li>التشخيص الذكي بالذكاء الاصطناعي (AI Diagnosis) عبر الصور أو الصوت.</li>
-        <li>منصة بيانات لأعطال سيارات حائل لتحليل الأنماط وتحسين جودة الخدمة.</li>
-        <li>برنامج ولاء رقمي <strong>AutoPoints</strong> لتحفيز عودة العملاء.</li>
-        <li>منصة تدريب رقمي للفنيين <strong>SkillHub</strong> لرفع المهارات.</li>
-        <li>ربط مباشر مع مورّدين عالميين في الصين والإمارات لتوفير قطع بسعر منافس.</li>
-    </ul>
+<section id="vision" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h3>لماذا GIG؟</h3>
+            <p>نعيد تعريف تجربة العميل من خلال 3 ركائز أساسية</p>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <i class="fas fa-microchip card-icon"></i>
+                <h4>التحول الرقمي</h4>
+                <p>وداعاً للفواتير الورقية والغموض. كل شيء مسجل في لوحة تحكم العميل، من لحظة دخول السيارة وحتى خروجها.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-shield-alt card-icon"></i>
+                <h4>الموثوقية والضمان</h4>
+                <p>نقدم تقارير فنية مدعومة بالصور والفيديو قبل البدء بأي إصلاح، لضمان راحة بالك وثقتك التامة.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-cogs card-icon"></i>
+                <h4>سلسلة إمداد ذكية</h4>
+                <p>نربطك مباشرة بموردي قطع الغيار (محلياً ودولياً) للحصول على أفضل سعر دون وسطاء غير ضروريين.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section id="why" class="section">
-    <h3>لماذا مشروع GIG يستحق الاعتماد في المسابقة والجامعة؟</h3>
-    <ul>
-        <li>يعتمد على خبرة عملية حقيقية في السوق، وليس فكرة نظرية فقط.</li>
-        <li>الورشة الفعلية قيد التجهيز حالياً في حائل.</li>
-        <li>الموقع الإلكتروني والتطبيق تحت التطوير كجزء من متطلبات المقرر.</li>
-        <li>يعالج مشاكل يومية يعاني منها العملاء والورش.</li>
-        <li>يمكن تطبيقه مباشرة على أرض الواقع والتوسع به على مستوى المملكة.</li>
-        <li>يدعم مستهدفات رؤية 2030 في التحول الرقمي ورفع جودة الخدمات.</li>
-        <li>يمتلك اسم وهوية قوية: <strong>GIG</strong>.</li>
-    </ul>
+<section id="ecosystem" class="section section-dark">
+    <div class="container">
+        <div class="section-header">
+            <h3>منظومة GIG المتكاملة</h3>
+            <p>حلول تقنية لمشاكل الورش التقليدية</p>
+        </div>
+        <div class="services-list">
+            <div class="service-item">
+                <div class="service-text">
+                    <h4>01. التشخيص الذكي</h4>
+                    <p>نستخدم أحدث أجهزة الفحص (OBD-II) المتصلة بنظامنا السحابي لتحليل الأعطال بدقة تتجاوز 95%.</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-text">
+                    <h4>02. السطحة عند الطلب</h4>
+                    <p>خدمة نقل ذكية. في حال اعتماد الإصلاح لدينا، نتحمل جزءاً أو كامل تكلفة النقل (وفقاً للباقة).</p>
+                </div>
+            </div>
+            <div class="service-item">
+                <div class="service-text">
+                    <h4>03. الملف الطبي للسيارة</h4>
+                    <p>سجل تاريخي كامل لكل صيانة وقطعة غيار تم تركيبها، مما يرفع من قيمة سيارتك عند البيع.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section id="booking" class="section section-gray">
-    <h3>نموذج حجز خدمة (نموذج تجريبي)</h3>
-    <form id="bookingForm" class="form">
-        <label>الاسم الكامل</label>
-        <input type="text" id="name" required>
-
-        <label>رقم الجوال</label>
-        <input type="tel" id="phone" required>
-
-        <label>نوع الخدمة المطلوبة</label>
-        <select id="service" required>
-            <option value="">اختر الخدمة</option>
-            <option>صيانة كهرباء</option>
-            <option>سمكرة ودهان</option>
-            <option>فحص شامل</option>
-            <option>خدمة سطحة</option>
-        </select>
-
-        <label>وصف مختصر للمشكلة</label>
-        <textarea id="details" rows="4"></textarea>
-
-        <button type="submit" class="btn-primary">إرسال الطلب التجريبي</button>
-    </form>
-    <p class="note">
-        هذا النموذج جزء من نموذج أولي (Prototype) لمشروع جامعي، 
-        ولا يمثّل نظام حجز فعلي حتى الآن.
-    </p>
+<section id="parts-request" class="section parts-section">
+    <div class="container">
+        <div class="split-layout">
+            <div class="text-side">
+                <h3>طلب تسعير قطع غيار</h3>
+                <p class="sub-head">نصلك بأفضل الموردين خلال 24 ساعة</p>
+                <p>لا تضيع وقتك في البحث بين المحلات. زودنا ببيانات سيارتك والقطعة المطلوبة، وسيقوم نظامنا بالبحث عن أفضل سعر (أصلي/تجاري) وتوفيرها لك.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check"></i> مقارنة أسعار آلية</li>
+                    <li><i class="fas fa-check"></i> ضمان المطابقة برقم الهيكل</li>
+                    <li><i class="fas fa-check"></i> خيارات شحن سريع</li>
+                </ul>
+            </div>
+            <div class="form-side">
+                <form id="partsForm" class="tech-form">
+                    <div class="form-group">
+                        <label>نوع السيارة (الشركة المصنعة)</label>
+                        <select id="carMake" required>
+                            <option value="" disabled selected>مثال: تويوتا، فورد...</option>
+                            <option value="Toyota">تويوتا (Toyota)</option>
+                            <option value="Hyundai">هيونداي (Hyundai)</option>
+                            <option value="Ford">فورد (Ford)</option>
+                            <option value="Nissan">نيسان (Nissan)</option>
+                            <option value="GM">جي إم سي / شفروليه</option>
+                            <option value="Other">أخرى</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>موديل السيارة</label>
+                            <input type="text" id="carModel" placeholder="مثال: كامري" required>
+                        </div>
+                        <div class="form-group">
+                            <label>سنة الصنع</label>
+                            <input type="number" id="carYear" placeholder="2023" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهيكل (VIN) - لضمان الدقة</label>
+                        <input type="text" id="vinNumber" placeholder="تجده في الاستمارة أو طبلون السيارة">
+                    </div>
+                    <div class="form-group">
+                        <label>اسم القطعة / وصف الطلب</label>
+                        <textarea id="partDescription" rows="3" placeholder="مثال: فحمات أمامية، صدام خلفي..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الجوال للتواصل</label>
+                        <input type="tel" id="clientPhone" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary full-width">رفع طلب التسعير <i class="fas fa-paper-plane"></i></button>
+                    <p class="form-note"><i class="fas fa-clock"></i> ستصلك رسالة عرض سعر خلال 24 ساعة عمل.</p>
+                </form>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section id="contact" class="section">
-    <h3>معلومات التواصل</h3>
-    <p>اسم المشروع: Alghatran Innovation Garage – GIG</p>
-    <p>الموقع: مدينة حائل – المنطقة الصناعية (ورشة قيد التجهيز)</p>
-    <p>إيميل للتواصل الأكاديمي: example@gig.com (عدّلها لإيميلك الحقيقي)</p>
-    <p>الطالب: معاذ محمد الغتران – الرقم الجامعي: 202207557</p>
+<section id="booking" class="section section-dark">
+    <div class="container center-content">
+        <h3>حجز موعد صيانة</h3>
+        <p>اختر الوقت المناسب لك، وسنكون في انتظارك</p>
+        
+        <form id="bookingForm" class="tech-form narrow-form">
+            <div class="form-group">
+                <label>الاسم الكريم</label>
+                <input type="text" id="bookingName" required>
+            </div>
+            <div class="form-group">
+                <label>رقم الجوال</label>
+                <input type="tel" id="bookingPhone" required>
+            </div>
+            <div class="form-group">
+                <label>نوع الخدمة</label>
+                <select id="serviceType" required>
+                    <option value="">اختر نوع الخدمة</option>
+                    <option>صيانة دورية (زيوت وفلاتر)</option>
+                    <option>فحص شامل وتشخيص</option>
+                    <option>ميكانيكا عامة</option>
+                    <option>سمكرة ودهان</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-outline full-width">تأكيد الحجز المبدئي</button>
+        </form>
+    </div>
 </section>
 
 <footer class="footer">
-    <p>© 2025 Alghatran Innovation Garage – GIG | نموذج أولي لمشروع جامعي</p>
+    <div class="container footer-content">
+        <div class="footer-info">
+            <h3>GIG</h3>
+            <p>منصة وورشة معاذ الغتران للابتكار (قيد التأسيس)</p>
+            <p>المنطقة الصناعية، حائل، المملكة العربية السعودية</p>
+        </div>
+        <div class="footer-links">
+            <p>تواصل معنا:</p>
+            <a href="mailto:info@gig-sa.com">info@gig-sa.com</a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2025 GIG Platform. تم التطوير بمعايير هندسة البرمجيات الحديثة.</p>
+    </div>
 </footer>
 
 <script src="script.js"></script>
